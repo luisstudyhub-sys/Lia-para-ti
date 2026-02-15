@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Lia 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+    overflow: hidden;
+    transition: background 0.5s;
+}
+
+/* modo día */
+body.day {
+    background: linear-gradient(135deg, #ffd6ec, #c8f7ff);
+}
+
+/* modo noche */
+body.night {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+}
+
+.card {
+    margin: 60px auto;
+    padding: 30px;
+    width: 85%;
+    max-width: 520px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    animation: aparecer 1.5s ease;
+}
+
+body.night .card {
+    background: #2a2a40;
+    color: white;
+}
+
+h1 {
+    color: #ff69b4;
+    font-size: 2.3em;
+}
+
+button {
+    margin-top: 12px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #ff69b4;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff4fa3;
+}
+
+/* ositos */
+.bear {
+    font-size: 40px;
+    animation: saltar 2s infinite ease-in-out;
+    margin: 10px;
+}
+
+/* corazones y brillos */
+.heart, .sparkle {
+    position: absolute;
+    animation: flotar linear infinite;
+}
+
+.heart { color: #ff69b4; font-size: 20px; }
+.sparkle { color: gold; font-size: 14px; }
+
+@keyframes flotar {
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes saltar {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* popup sorpresa */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    transition: transform 0.3s;
+    z-index: 999;
+}
+
+.popup.show {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+body.night .popup {
+    background: #2a2a40;
+    color: white;
+}
+</style>
+</head>
+
+<body class="day">
+
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=cute-110479.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+    <div>
+        <span class="bear">🧸</span>
+        <span class="bear">🧸</span>
+        <span class="bear">🧸</span>
+    </div>
+
+    <h1>Para Lia 💕</h1>
+
+    <p>
+        Lia, gracias por ser mi mejor amiga.<br><br>
+        Aunque hoy no estemos cerca, quiero que recuerdes lo importante que eres para mí.<br><br>
+        Tu amistad es un regalo que valoro muchísimo.<br><br>
+        💖 Con cariño, Luis.
+    </p>
+
+    <button onclick="playMusic()">🎵
